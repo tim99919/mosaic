@@ -159,6 +159,10 @@ export abstract class McPopUpTrigger<T> {
     }
 
     show(delay: number = this.enterDelay): void {
+        if (!this.content) {
+            return;
+        }
+
         if (this.disabled || this.instance) { return; }
 
         this.overlayRef = this.createOverlay();
